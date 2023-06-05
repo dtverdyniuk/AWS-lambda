@@ -1,10 +1,17 @@
 exports.handler = async (event) => {
-    const name = event.queryStringParameters && event.queryStringParameters.name;
     
+    console.log(event);
+    
+    const name = event.queryStringParameters && event.queryStringParameters.name;
+    const age = event.queryStringParameters && event.queryStringParameters.age;
     let message = "Hello Lambda";
     
     if (name != null) {
         message = `Hello ${name}`
+    }
+    
+    if (age != null) {
+        message += ` age ${age}`
     }
     
     const response = {
